@@ -1000,7 +1000,7 @@ Create a `.env` file based on `.env.template`:
 
 \`\`\`env
 # Database
-MONGODB_URI=mongodb://localhost:27017/unified-toolkit
+MONGODB_URI=mongodb://localhost:27017/Unified-Toolkit-for-New-Pen-Testers
 
 # JWT Secrets
 JWT_SECRET=your-super-secret-jwt-key-here
@@ -1659,6 +1659,6 @@ The developers and contributors of this project are not responsible for any misu
 
 ---
 
-**Built with ❤️ for the cybersecurity community**
+**Built with Suman❤️ for the cybersecurity community**
 
 *"Security is not a product, but a process." - Bruce Schneier*
