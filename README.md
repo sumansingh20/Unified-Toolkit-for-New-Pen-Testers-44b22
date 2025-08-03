@@ -47,7 +47,7 @@ A comprehensive full-stack cybersecurity learning platform that integrates essen
 
 1. **Clone the repository**
 \`\`\`bash
-git clone https://github.com/yourusername/unified-toolkit.git
+git clone https://github.com/sumansingh20/Unified-Toolkit-for-New-Pen-Testers.git
 cd unified-toolkit
 \`\`\`
 
@@ -154,7 +154,7 @@ Create a `.env` file based on `.env.template`:
 
 \`\`\`env
 # Database
-MONGODB_URI=mongodb://localhost:27017/unified-toolkit
+MONGODB_URI=mongodb://localhost:27017/Unified-Toolkit-for-New-Pen-Testers
 
 # JWT Secrets
 JWT_SECRET=your-super-secret-jwt-key-here
@@ -384,6 +384,6 @@ If you find this project helpful, please consider giving it a star on GitHub!
 
 ---
 
-**Built with ❤️ for the cybersecurity community**
+**Built with Suman❤️ for the cybersecurity community**
 
 *Remember: This tool is for educational purposes and authorized testing only. Always obtain proper permission before testing any systems you don't own.*
