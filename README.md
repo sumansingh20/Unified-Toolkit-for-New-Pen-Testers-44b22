@@ -961,35 +961,156 @@ docker run -p 3000:3000 --env-file .env unified-toolkit
 ## 📁 Project Structure
 
 \`\`\`
-unified-toolkit/
+Unified-Toolkit-for-New-Pen-Testers/
 ├── app/                          # Next.js App Router pages
 │   ├── api/                      # API routes
 │   │   ├── auth/                 # Authentication endpoints
+│   │   │   ├── change-password/
+│   │   │   ├── delete-account/
+│   │   │   ├── forgot-password/
+│   │   │   ├── login/
+│   │   │   ├── profile/
+│   │   │   ├── register/
+│   │   │   ├── reset-password/
+│   │   │   ├── security-settings/
+│   │   │   └── verify-otp/
+│   │   ├── seed/                 # Database seeding
 │   │   └── tools/                # Security tool endpoints
+│   │       ├── advanced/
+│   │       ├── dns/
+│   │       ├── expert/
+│   │       ├── http-headers/
+│   │       ├── network-scan/
+│   │       ├── nmap/
+│   │       └── ...
 │   ├── dashboard/                # Main dashboard
+│   │   └── page.tsx
 │   ├── tools/                    # Individual tool pages
+│   │   ├── advanced/             # Advanced penetration testing tools
+│   │   ├── dns-lookup/
+│   │   ├── expert/               # Expert-level tools
+│   │   ├── http-headers/
+│   │   ├── network-scan/
+│   │   ├── port-scanner/
+│   │   ├── subdomain-enum/
+│   │   ├── vuln-scanner/
+│   │   └── whois/
 │   ├── login/                    # Authentication pages
+│   │   └── page.tsx
 │   ├── register/
+│   │   └── page.tsx
+│   ├── profile/
+│   │   └── page.tsx
 │   ├── verify-otp/
+│   │   ├── loading.tsx
+│   │   └── page.tsx
 │   ├── forgot-password/
-│   └── reset-password/
+│   │   └── page.tsx
+│   ├── reset-password/
+│   │   ├── loading.tsx
+│   │   └── page.tsx
+│   ├── globals.css               # Global styles
+│   ├── layout.tsx                # Root layout component
+│   └── page.tsx                  # Home page
 ├── components/                   # Reusable React components
 │   ├── ui/                       # shadcn/ui components
+│   │   ├── alert.tsx
+│   │   ├── avatar.tsx
+│   │   ├── badge.tsx
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── form.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── popover.tsx
+│   │   ├── progress.tsx
+│   │   ├── radio-group.tsx
+│   │   ├── scroll-area.tsx
+│   │   ├── select.tsx
+│   │   ├── separator.tsx
+│   │   ├── sheet.tsx
+│   │   ├── sidebar.tsx
+│   │   ├── skeleton.tsx
+│   │   ├── switch.tsx
+│   │   ├── table.tsx
+│   │   ├── tabs.tsx
+│   │   ├── textarea.tsx
+│   │   ├── toast.tsx
+│   │   ├── toaster.tsx
+│   │   ├── toggle.tsx
+│   │   └── tooltip.tsx
+│   ├── DashboardStats.tsx        # Dashboard statistics component
+│   ├── RecentActivity.tsx        # Recent activity display
 │   ├── TerminalOutput.tsx        # CLI-style output component
+│   ├── theme-provider.tsx        # Theme context provider
+│   ├── ThemeBackground.tsx       # Background theme component
+│   ├── ThemeToggle.tsx           # Dark/light mode toggle
 │   └── ToolForm.tsx              # Tool input form component
 ├── contexts/                     # React contexts
-│   └── AuthContext.tsx           # Authentication context
+│   ├── AuthContext.tsx           # Authentication context
+│   └── ThemeContext.tsx          # Theme management context
 ├── hooks/                        # Custom React hooks
+│   ├── use-mobile.tsx            # Mobile device detection
+│   ├── use-toast.ts              # Toast notifications
 │   └── useApi.ts                 # API call hook
 ├── lib/                          # Utility libraries
 │   ├── models/                   # MongoDB models
+│   │   ├── OTP.ts
+│   │   ├── ScanLog.ts
+│   │   └── User.ts
 │   ├── utils/                    # Utility functions
+│   │   ├── advanced-tools.ts
+│   │   ├── demo-account.ts
+│   │   ├── email.ts
+│   │   ├── expert-tools.ts
+│   │   ├── jwt.ts
+│   │   ├── otp.ts
+│   │   ├── security-tools.ts
+│   │   └── sms.ts
 │   ├── middleware/               # API middleware
-│   └── mongodb.ts                # Database connection
+│   │   ├── auth.ts
+│   │   └── rate-limit.ts
+│   ├── mongodb.ts                # Database connection
+│   └── utils.ts                  # General utilities
+├── nginx/                        # Nginx configuration
+│   └── nginx.prod.conf
+├── public/                       # Static assets
+│   ├── placeholder-logo.png
+│   ├── placeholder-logo.svg
+│   ├── placeholder-user.jpg
+│   ├── placeholder.jpg
+│   └── placeholder.svg
+├── styles/                       # Additional styles
+│   └── globals.css
+├── .env.local                    # Local environment variables
+├── .env.production               # Production environment variables
+├── .gitignore                    # Git ignore rules
+├── CLEANUP-SUMMARY.md            # Project cleanup documentation
+├── components.json               # shadcn/ui configuration
+├── deploy.ps1                    # PowerShell deployment script
+├── deploy.sh                     # Bash deployment script
+├── DEPLOYMENT.md                 # Deployment documentation
+├── DEVELOPMENT.md                # Development documentation
 ├── docker-compose.yml            # Docker services configuration
+├── docker-compose.dev.yml        # Development Docker configuration
+├── docker-compose.prod.yml       # Production Docker configuration
 ├── Dockerfile                    # Container build instructions
+├── LICENSE                       # Project license
+├── mongo-init.js                 # MongoDB initialization script
+├── next-env.d.ts                 # Next.js TypeScript declarations
+├── next.config.mjs               # Next.js configuration
+├── next.config.optimized.mjs     # Optimized Next.js configuration
 ├── nginx.conf                    # Nginx configuration
-└── README.md                     # This file
+├── package.json                  # Node.js dependencies and scripts
+├── package-lock.json             # Dependency lock file
+├── pnpm-lock.yaml                # PNPM lock file
+├── postcss.config.mjs            # PostCSS configuration
+├── PROJECT-SUMMARY.md            # Project summary documentation
+├── README.md                     # This file
+├── tailwind.config.ts            # Tailwind CSS configuration
+└── tsconfig.json                 # TypeScript configuration
 \`\`\`
 
 ## 🔧 Configuration
