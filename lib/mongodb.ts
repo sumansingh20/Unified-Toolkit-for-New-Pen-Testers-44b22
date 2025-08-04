@@ -1,12 +1,20 @@
 import mongoose from "mongoose"
 
-const MONGODB_URI = process.env.MONGODB_URI!
+// Handle missing MONGODB_URI during build time
+const MONGODB_URI = process.env.MONGODB_URI
 
-// For development, make MongoDB connection optional to avoid delays
+// For development and build time, make MongoDB connection optional
 const isDevelopment = process.env.NODE_ENV === "development"
+const isNetlifyBuild = process.env.NETLIFY === "true"
+const isBuildTime = process.env.NODE_ENV === "production" && !process.env.VERCEL && !MONGODB_URI
 
-if (!MONGODB_URI && !isDevelopment) {
-  throw new Error("Please define the MONGODB_URI environment variable inside .env")
+if (!MONGODB_URI) {
+  if (isDevelopment || isNetlifyBuild || isBuildTime) {
+    console.warn("⚠️  MONGODB_URI not found - MongoDB features will be disabled during build")
+  } else {
+    // Only throw in runtime production environment
+    console.error("Please define the MONGODB_URI environment variable in your deployment environment")
+  }
 }
 
 interface MongooseCache {
@@ -25,10 +33,13 @@ if (!cached) {
 }
 
 async function connectDB() {
-  // In development, return a mock connection if MongoDB is not available
-  if (isDevelopment && !MONGODB_URI) {
-    console.log("MongoDB not configured for development - using mock connection")
-    return null
+  // Handle missing MONGODB_URI during build time or development
+  if (!MONGODB_URI) {
+    if (isDevelopment || isNetlifyBuild || isBuildTime) {
+      console.log("MongoDB not configured - using mock connection for build/development")
+      return null
+    }
+    throw new Error("MONGODB_URI environment variable is required for production runtime")
   }
 
   if (cached!.conn) {

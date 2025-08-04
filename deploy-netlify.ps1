@@ -92,8 +92,18 @@ function Show-NetlifyInstructions {
     Write-Host "4. Configure build settings:" -ForegroundColor White
     Write-Host "   - Build command: pnpm build" -ForegroundColor Gray
     Write-Host "   - Publish directory: .next" -ForegroundColor Gray
-    Write-Host "5. Set environment variables (see .env.netlify file)" -ForegroundColor White
+    Write-Host "5. Set environment variables in Netlify Dashboard:" -ForegroundColor White
+    Write-Host "   - MONGODB_URI: Your MongoDB Atlas connection string" -ForegroundColor Gray
+    Write-Host "   - JWT_SECRET: A secure 32+ character string" -ForegroundColor Gray
+    Write-Host "   - JWT_REFRESH_SECRET: Another secure 32+ character string" -ForegroundColor Gray
+    Write-Host "   - NEXT_PUBLIC_SITE_URL: https://your-site-name.netlify.app" -ForegroundColor Gray
     Write-Host "6. Deploy your site!" -ForegroundColor White
+    Write-Host ""
+    Write-Host "🔧 Fixed Issues:" -ForegroundColor Yellow
+    Write-Host "   ✅ Added .env file with default values" -ForegroundColor Green
+    Write-Host "   ✅ Updated MongoDB connection to handle missing env vars" -ForegroundColor Green
+    Write-Host "   ✅ Configured Next.js for Netlify deployment" -ForegroundColor Green
+    Write-Host "   ✅ Added build-time environment variable defaults" -ForegroundColor Green
     Write-Host ""
     Write-Host "🔗 Your site will be available at: https://random-name.netlify.app" -ForegroundColor Yellow
     Write-Host "💡 You can customize the domain in Netlify site settings" -ForegroundColor Cyan
