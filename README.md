@@ -1,7 +1,6 @@
 <div align="center">
 
 # 🛡️ Unified Toolkit for New Pen-Testers
-
 *Your Gateway to Professional Cybersecurity*
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.18-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
