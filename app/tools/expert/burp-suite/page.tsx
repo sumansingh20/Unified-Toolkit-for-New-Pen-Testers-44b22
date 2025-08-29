@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield } from "lucide-react";
-
 export default function BurpSuitePage() {
   return (
     <div className="container mx-auto p-6 space-y-6">
